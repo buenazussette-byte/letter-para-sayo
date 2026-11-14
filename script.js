@@ -1,12 +1,5 @@
 (function () {
-  /* ============================================================
-     CONFIGURATION – change CRUSH_NAME to your crush's name
-     ============================================================ */
   const CRUSH_NAME = "Matt"; // <-- CHANGE THIS
-
-  /* ============================================================
-     DOM ELEMENTS
-     ============================================================ */
   const crushNameSpan       = document.getElementById("crushName");
   const letterCrushNameSpan = document.getElementById("letterCrushName");
   const noBtn               = document.getElementById("noBtn");
@@ -18,18 +11,12 @@
   const answerYesBtn    = document.getElementById("answerYesBtn");
   const answerNoBtn     = document.getElementById("answerNoBtn");
   const responseMessage = document.getElementById("responseMessage");
-  
   const photoSection    = document.getElementById("photoSection");
-
-  /* Set name in both greeting and letter */
+  
   crushNameSpan.textContent       = CRUSH_NAME;
   letterCrushNameSpan.textContent = CRUSH_NAME;
 
-  /* ============================================================
-     FLOATING HEARTS BACKGROUND ANIMATION
-     ============================================================ */
   const heartsContainer = document.getElementById("floatingHearts");
-  
   function createFloatingHeart() {
     const heart = document.createElement("div");
     heart.classList.add("floating-heart");
@@ -57,9 +44,6 @@
 
   setInterval(createFloatingHeart, 600);
 
-  /* ============================================================
-     "NO" BUTTON DODGE LOGIC (first set)
-     ============================================================ */
   let currentX = 0;
   let currentY = 0;
 
@@ -110,9 +94,6 @@
     }
   });
 
-  /* ============================================================
-     SECOND "NO" BUTTON (inside letter)
-     ============================================================ */
   let answerCurrentX = 0;
   let answerCurrentY = 0;
 
@@ -158,9 +139,6 @@
     }
   });
 
-  /* ============================================================
-     FIRST "YES" BUTTON – reveal the letter
-     ============================================================ */
   yesBtn.addEventListener("click", function () {
     letterSection.classList.add("show");
 
@@ -175,9 +153,6 @@
     }, 250);
   });
 
-  /* ============================================================
-     SECOND "YES" BUTTON – show photo & confirmation message
-     ============================================================ */
   answerYesBtn.addEventListener("click", function () {
     photoSection.classList.add("show");
 
