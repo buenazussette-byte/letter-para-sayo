@@ -1,5 +1,5 @@
 (function () {
-  const CRUSH_NAME = "Matt"; // <-- CHANGE THIS
+  const CRUSH_NAME = "Matt"; 
   const crushNameSpan       = document.getElementById("crushName");
   const letterCrushNameSpan = document.getElementById("letterCrushName");
   const noBtn               = document.getElementById("noBtn");
@@ -12,11 +12,21 @@
   const answerNoBtn     = document.getElementById("answerNoBtn");
   const responseMessage = document.getElementById("responseMessage");
   const photoSection    = document.getElementById("photoSection");
-  
+
+  const dodgeMessage1   = document.getElementById("dodgeMessage1");
+  const dodgeMessage2   = document.getElementById("dodgeMessage2");
+
+  const loadingScreen   = document.getElementById("loadingScreen");
+  const loadingBar      = document.getElementById("loadingBar");
+  const loadingText     = document.getElementById("loadingPercentage");
+  const enterBtn        = document.getElementById("enterBtn");
+  const mainWrapper     = document.getElementById("mainWrapper");
+
   crushNameSpan.textContent       = CRUSH_NAME;
   letterCrushNameSpan.textContent = CRUSH_NAME;
 
   const heartsContainer = document.getElementById("floatingHearts");
+  
   function createFloatingHeart() {
     const heart = document.createElement("div");
     heart.classList.add("floating-heart");
@@ -43,6 +53,58 @@
   }
 
   setInterval(createFloatingHeart, 600);
+
+  let progress = 1;
+  
+  const loadingInterval = setInterval(() => {
+    progress += Math.floor(Math.random() * 5) + 2; 
+    
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(loadingInterval);
+      
+      setTimeout(() => {
+        enterBtn.classList.add("show");
+      }, 300);
+    }
+    
+    loadingText.textContent = progress + "%";
+    loadingBar.style.width = progress + "%";
+  }, 80);
+
+  enterBtn.addEventListener("click", () => {
+    loadingScreen.classList.add("fade-out");
+    
+    setTimeout(() => {
+      loadingScreen.style.display = "none";
+      mainWrapper.classList.add("show");
+      document.body.style.overflowY = "auto"; 
+    }, 600);
+  });
+
+  const messages = [ 
+    "oopps...",
+    "hala bawal daw mag no...",
+    "aray ko...",
+    "no, talaga? :<",
+    "ayaw mo talaga?",
+    "please naman oh :<",
+    "sige na... yes na..." 
+  ];
+  
+  let msgIndex1 = 0;
+  let msgIndex2 = 0;
+
+  function showMessage(element, index) {
+    // Set text and show
+    element.textContent = messages[index];
+    element.classList.add("show");
+    
+    // Hide after 1.5 seconds
+    setTimeout(() => {
+      element.classList.remove("show");
+    }, 1500);
+  }
 
   let currentX = 0;
   let currentY = 0;
@@ -75,6 +137,9 @@
     noBtn.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
 
     if (hintText) hintText.style.opacity = "0.5";
+
+    showMessage(dodgeMessage1, msgIndex1);
+    msgIndex1 = (msgIndex1 + 1) % messages.length;
   }
 
   noBtn.addEventListener("click", function (e) {
@@ -120,6 +185,9 @@
     const rotation = Math.random() * 8 - 4;
     answerNoBtn.style.transform =
       `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+
+    showMessage(dodgeMessage2, msgIndex2);
+    msgIndex2 = (msgIndex2 + 1) % messages.length;
   }
 
   answerNoBtn.addEventListener("click", function (e) {
@@ -157,7 +225,7 @@
     photoSection.classList.add("show");
 
     responseMessage.textContent =
-      `Please, message me if you're interested in a friendly date hehe`;
+      `Please, message me if you're interested in a friendly date, ${CRUSH_NAME}!`;
     responseMessage.classList.add("show");
 
     answerYesBtn.style.display = "none";
