@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confession for My Crush</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-percentage" id="loadingPercentage">1%</div>
+      <div class="loading-bar-container">
+        <div class="loading-bar" id="loadingBar"></div>
+      </div>
+      <button class="btn btn-yes enter-btn" id="enterBtn">Enter</button>
+    </div>
+  </div>
+
+  <div class="main-wrapper" id="mainWrapper">
+    <div class="confession-card">
+      <!-- GREETING -->
+      <div class="greeting-section">
+        <div class="greeting">
+          Hi, <span id="crushName">Crush</span>!
+        </div>
+        <div class="short-description">
+          There's something I've wanted to tell you...
+        </div>
+        <!-- HINT TEXT -->
+        <div class="greeting-hint">
+          Please click "Yes" if you want to know more, or "No" if you don't.
+        </div>
+      </div>
+
+      <div class="button-group" id="buttonGroup">
+        <!-- Notification bubble for the first "No" -->
+        <div class="dodge-message" id="dodgeMessage1">oopps...</div> 
+        
+        <button class="btn btn-yes" id="yesBtn">Yes</button>
+        <button class="btn btn-no" id="noBtn">No</button>
+      </div>
+
+      <div class="letter-section" id="letterSection">
+        <div class="letter-content">
+          <div class="letter-text">
+            <p class="letter-greeting">Dear <span id="letterCrushName">Crush</span>,</p>
+            <p>
+              There's something I've been wanting to tell you for quite some time now. I don't know if you've ever noticed my mga pabati na mga stories for you on instagram, or if you have even the slightest idea, but I've had a crush on you for a while now.
+            </p>
+            <p>
+              Actually, it started when I saw you at the wkndr last October. I found you attractive right away, and after asking my friend about you, I found out we actually have a lot in common, which only made me want to get to know you more.
+            </p>
+            <p>
+              I don't wanna pressure you, but I really like you. Is it okay if we become friends? Like no pressure on your side, but I really really want to get to know you more. And if you don't see me that way or don't want it, it's fine, I really respect your decision.
+            </p>
+          </div>
+
+          <div class="friendly-date-question">
+            Would you go on a friendly date with me?
+          </div>
+
+          <div class="answer-group" id="answerGroup">
+            <div class="dodge-message" id="dodgeMessage2">hala bawal daw mag no...</div>
+
+            <button class="btn btn-yes btn-answer" id="answerYesBtn">Yes</button>
+            <button class="btn btn-no btn-answer" id="answerNoBtn">No</button>
+          </div>
+
+          <div class="photo-section" id="photoSection">
+            <div class="photo-container">
+              <img src="heart.png" alt="Cute Heart" class="heart-photo" id="heartPhoto" />
+            </div>
+          </div>
+
+          <div class="response-message" id="responseMessage"></div>
+        </div>
+      </div>
+      </div>
+    </div> 
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html> 
