@@ -225,7 +225,7 @@
     photoSection.classList.add("show");
 
     responseMessage.textContent =
-      `Please, message me if you're interested in a friendly date, ${CRUSH_NAME}!`;
+      `Please, message me if you're interested in a friendly date hehe`;
     responseMessage.classList.add("show");
 
     answerYesBtn.style.display = "none";
