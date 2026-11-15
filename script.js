@@ -7,15 +7,12 @@
   const letterSection       = document.getElementById("letterSection");
   const hintText            = document.getElementById("hintText");
   const buttonGroup         = document.getElementById("buttonGroup");
-
   const answerYesBtn    = document.getElementById("answerYesBtn");
   const answerNoBtn     = document.getElementById("answerNoBtn");
   const responseMessage = document.getElementById("responseMessage");
   const photoSection    = document.getElementById("photoSection");
-
   const dodgeMessage1   = document.getElementById("dodgeMessage1");
   const dodgeMessage2   = document.getElementById("dodgeMessage2");
-
   const loadingScreen   = document.getElementById("loadingScreen");
   const loadingBar      = document.getElementById("loadingBar");
   const loadingText     = document.getElementById("loadingPercentage");
@@ -26,11 +23,10 @@
   letterCrushNameSpan.textContent = CRUSH_NAME;
 
   const heartsContainer = document.getElementById("floatingHearts");
-  
   function createFloatingHeart() {
     const heart = document.createElement("div");
     heart.classList.add("floating-heart");
-    
+  
     const size = Math.random() * 20 + 10; 
     const left = Math.random() * 100;     
     const duration = Math.random() * 4 + 6; 
